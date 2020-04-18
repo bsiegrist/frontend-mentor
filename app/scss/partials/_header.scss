@@ -1,5 +1,5 @@
 header{
-    height: 10%;
+    height: 15%;
     border: 2px solid $header-outline;
     border-radius: 7px;
     padding: 1rem;
@@ -15,23 +15,24 @@ header{
 .score{
     background-color: white;
     border-radius: 7px;
-    width: 6rem;
     height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0.4rem 1.2rem 0.4rem 1.2rem;
 
     h2{
         color: $score-text;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         letter-spacing: 0.1rem; 
-        margin: 0.3rem 0 0 0;
+        margin: 0;
     }
 
     p{
         color: $dark-text;
-        font-size: 3rem;
-        margin: 0;
+        font-size: 2.5rem;
+        margin: -0.2rem;
+        font-weight: 700;
     }
 }

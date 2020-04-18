@@ -1,13 +1,19 @@
 @import "partials/normalize";
 @import "partials/colors";
 
+*, :after{
+    box-sizing: border-box;
+}
+
+
 body{
     color: white;
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: 600;
     background-image: radial-gradient(circle at top right, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-    margin: 2rem;
     height: 100vh;
+    padding: 2rem;
+
 }
 
 @import "partials/header";
