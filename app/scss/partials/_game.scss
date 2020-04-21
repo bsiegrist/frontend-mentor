@@ -7,6 +7,65 @@ main{
 
 .game{
   height: 85%;
+  width: 100%;
+  margin: 20% 0 30% 0;
+  background-image: url("../img/bg-pentagon.svg");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+
+  &__button{
+    display: flex;
+
+  }
+
+  &__color{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom, $scissors1, $scissors2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 0 0 hsl(237, 49%, 15%),
+                inset 0 -4px 0 0 rgba(0,0,0,0.2);
+
+  }
+
+  &__buttonwhite{
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 4px 0 0 rgba(0,0,0,0.2);
+
+    img{
+      width: 43%;
+    }
+  }
+}
+
+.spock{
+  background-image: linear-gradient(to bottom, $spock1, $spock2);
+}
+
+.paper{
+  background-image: linear-gradient(to bottom, $paper1, $paper2);
+}
+
+.rock{
+  background-image: linear-gradient(to bottom, $rock1, $rock2);
+}
+
+.lizard{
+  background-image: linear-gradient(to bottom, $lizard1, $lizard2);
+
+  img{
+    width: 55%;
+  }
 }
 
 .rulesbutton{
