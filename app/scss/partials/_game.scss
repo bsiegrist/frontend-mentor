@@ -1,39 +1,49 @@
 main{
-    height: 85%;
+    height: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include media{
+      height: 85%;
+      width: 95%;
+    }
 }
 
 .game{
-  height: 60%;
-  width: 100%;
-  margin: 20% 0 30% 0;
+  margin: 40% 0 50% 0;
+  padding: 0;
   background-image: url("../img/bg-pentagon.svg");
   background-repeat: no-repeat;
-  background-size: 70%;
-  background-position: 50% calc(50% - 15px) ;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  //align-items: center;
-
-  &__button{
-    display: flex;
-
+  background-size: 90%;
+  background-position: 50% calc(50% - 15px);
+  @include distribute-on-circle(
+        $nb-items: 5,
+        $circle-size: 220px,
+        $item-size: 6rem
+      );
+  @include media{
+    margin: 10% 0 0 0;
+    @include distribute-on-circle(
+        $nb-items: 5,
+        $circle-size: 380px,
+        $item-size: 9rem
+      );
   }
 
-  &__color{
+  &__button{
     height: 6rem;
     width: 6rem;
     border-radius: 50%;
-    background-image: linear-gradient(to bottom, $scissors1, $scissors2);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 0 0 hsl(237, 49%, 15%),
                 inset 0 -4px 0 0 rgba(0,0,0,0.2);
-
+    @include media{
+      height: 9rem;
+      width: 9rem;
+    }
   }
 
   &__buttonwhite{
@@ -45,6 +55,10 @@ main{
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 4px 0 0 rgba(0,0,0,0.2);
+    @include media{
+      height: 7rem;
+      width: 7rem;
+    }
 
     img{
       width: 43%;
@@ -52,29 +66,30 @@ main{
   }
 }
 
-.spock{
-  background-image: linear-gradient(to bottom, $spock1, $spock2);
-  align-self: flex-end;
-}
-
 .paper{
   background-image: linear-gradient(to bottom, $paper1, $paper2);
-  align-self: flex-end;
 }
 
 .rock{
   background-image: linear-gradient(to bottom, $rock1, $rock2);
-  align-self: center;
 }
 
 .lizard{
   background-image: linear-gradient(to bottom, $lizard1, $lizard2);
-  align-self: center;
 
   img{
     width: 55%;
   }
 }
+
+.spock{
+  background-image: linear-gradient(to bottom, $spock1, $spock2);
+}
+
+.scissors{
+  background-image: linear-gradient(to bottom, $scissors1, $scissors2);
+}
+
 
 .rulesbutton{
     border: 2px solid $header-outline;
@@ -82,6 +97,8 @@ main{
     background-color: hsl(237, 49%, 15%);
     color: white;
     letter-spacing: 0.2rem;
-    padding: 0.7rem;
-    width: 40%;
+    padding: 0.7rem 2rem;
+    @include media{
+      align-self: flex-end;
+    }
 }
