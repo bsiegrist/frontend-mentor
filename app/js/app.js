@@ -23,10 +23,29 @@ rules.addEventListener('click', () => {
 //show points
 score.innerText = points;
 
-//step 2
+//eventlistener gamebutton color
 start.addEventListener('click', Tools.delegate('.game__button', (event)=>{
     console.log(event.target.id);
     let button_id = event.target.id;
+    choice(button_id);
+}))
+
+//eventlistener gamebutton white
+start.addEventListener('click', Tools.delegate('.game__buttonwhite', (event)=>{
+    console.log(event.target.parentNode.id);
+    let button_id = event.target.parentNode.id;
+    choice(button_id);
+}))
+
+//eventlistener gamebutton img
+start.addEventListener('click', Tools.delegate('.game__buttonwhite img', (event)=>{
+    console.log(event.target.parentNode.parentNode.id);
+    let button_id = event.target.parentNode.parentNode.id;
+    choice(button_id);
+}))
+
+//show user choice
+function choice(button_id){
     game.innerHTML =    `<div class="choice choice__player">
                             <div class="game__button" id="${button_id}">
                                 <div class="game__buttonwhite">
@@ -47,5 +66,4 @@ start.addEventListener('click', Tools.delegate('.game__button', (event)=>{
     game.style.justifyContent = "space-between";
     game__button.style.width = "8rem";
     game__button.style.height = "8rem";
-
-}))
+};
