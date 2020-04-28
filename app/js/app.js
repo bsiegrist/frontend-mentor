@@ -3,7 +3,9 @@ import * as Tools from './tools.js';
 const rulesbutton = document.querySelector(".rulesbutton");
 const rules = document.querySelector(".rules");
 const score = document.querySelector(".score__points");
+const start = document.querySelector(".game__start");
 const game = document.querySelector(".game");
+const game__button = document.querySelector(".game__button");
 
 let points = 0;
 
@@ -22,12 +24,27 @@ rules.addEventListener('click', () => {
 score.innerText = points;
 
 //step 2
-game.addEventListener('click', Tools.delegate('.game__button', (event)=>{
+start.addEventListener('click', Tools.delegate('.game__button', (event)=>{
     console.log("click");
-    game.style.backgroundImage = "none";
-    game.innerHTML =    `<div class="choice">
+    game.innerHTML =    `<div class="choice choice__player">
+                            <div class="game__button paper">
+                                <div class="game__buttonwhite">
+                                    <img src="img/icon-paper.svg" alt="paper-button">
+                                </div>
+                            </div>
+                            <h3>YOU PICKED</h3>
                         </div>
-                        <div class="computer">
+
+                        <div class="choice choice_computer">
+                            <div class="game__button paper">
+                                <div class="game__buttonwhite">
+                                    <img src="img/icon-paper.svg" alt="paper-button">
+                                </div>
+                            </div>
+                            <h3>THE HOUSE PICKED</h3>
                         </div>`
+    game.style.justifyContent = "space-between";
+    game__button.style.width = "8rem";
+    game__button.style.height = "8rem";
 
 }))

@@ -11,25 +11,55 @@ main{
 }
 
 .game{
-  margin: 40% 0 40% 0;
-  padding: 0;
-  background-image: url("../img/bg-pentagon.svg");
-  background-repeat: no-repeat;
-  background-size: 90%;
-  background-position: 50% calc(50% - 15px);
-  @include distribute-on-circle(
-        $nb-items: 5,
-        $circle-size: 220px,
-        $item-size: 6rem
-      );
-  @include media{
-    margin: 10% 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    @include media{
+      width: 52%;
+    }
+
+  &__start{
+    margin: 40% 0 40% 0;
+    padding: 0;
+    background-image: url("../img/bg-pentagon.svg");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: 50% calc(50% - 15px);
     @include distribute-on-circle(
-        $nb-items: 5,
-        $circle-size: 380px,
-        $item-size: 9rem
-      );
+          $nb-items: 5,
+          $circle-size: 220px,
+          $item-size: 6rem
+        );
+    @include media{
+      margin: 10% 0 0 0;
+      @include distribute-on-circle(
+          $nb-items: 5,
+          $circle-size: 380px,
+          $item-size: 9rem
+        );
+    }
   }
+
+  &>.choice>.game__button{
+    height: 8rem;
+    width: 8rem;
+    @include media {
+      height: 15rem;
+      width: 15rem;
+    }
+  }
+
+  &>.choice>.game__button>.game__buttonwhite{
+    height: 6rem;
+    width: 6rem;
+    @include media {
+      height: 12rem;
+      width: 12rem;
+    }
+  }
+
 
   &__button{
     height: 6rem;
@@ -44,6 +74,7 @@ main{
       height: 9rem;
       width: 9rem;
     }
+  
   }
 
   &__buttonwhite{
@@ -91,6 +122,23 @@ main{
 }
 
 
+/*choice*/
+.choice{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  @include media{
+    flex-direction: column-reverse;
+  }
+}
+
+
+
+
+
+
+/* Rules */
 .rulesbutton{
     border: 2px solid $header-outline;
     border-radius: 7px;
