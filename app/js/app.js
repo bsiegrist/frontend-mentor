@@ -25,18 +25,19 @@ score.innerText = points;
 
 //step 2
 start.addEventListener('click', Tools.delegate('.game__button', (event)=>{
-    console.log("click");
+    console.log(event.target.id);
+    let button_id = event.target.id;
     game.innerHTML =    `<div class="choice choice__player">
-                            <div class="game__button paper">
+                            <div class="game__button" id="${button_id}">
                                 <div class="game__buttonwhite">
-                                    <img src="img/icon-paper.svg" alt="paper-button">
+                                    <img src="img/icon-${button_id}.svg" alt="${button_id}-button">
                                 </div>
                             </div>
                             <h3>YOU PICKED</h3>
                         </div>
 
                         <div class="choice choice_computer">
-                            <div class="game__button paper">
+                            <div class="game__button" id="paper">
                                 <div class="game__buttonwhite">
                                     <img src="img/icon-paper.svg" alt="paper-button">
                                 </div>
