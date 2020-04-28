@@ -8,6 +8,7 @@ const game = document.querySelector(".game");
 
 let points = 0;
 
+const options = ["rock", "paper", "scissors", "lizard", "spock"];
 
 //show rules
 rulesbutton.addEventListener('click', () => {
@@ -41,16 +42,18 @@ function choice(button_id){
                         </div>`
     game.style.justifyContent = "space-between";
     setTimeout(() => {
-        finalchoice("paper");
+        finalchoice();
         },1000);
 };
 
 //show final choices
-function finalchoice(computer){
+function finalchoice(){
+    const randomElement = options[Math.floor(Math.random() * options.length)];
+    console.log(randomElement);
     const choice__computer = document.querySelector(".choice__computer");
-    choice__computer.innerHTML =`<div class="game__button" id="${computer}">
+    choice__computer.innerHTML =`<div class="game__button" id="${randomElement}">
                                     <div class="game__buttonwhite">
-                                        <img src="img/icon-${computer}.svg" alt="${computer}-button">
+                                        <img src="img/icon-${randomElement}.svg" alt="${randomElement}-button">
                                     </div>
                                  </div>
                                  <h3>THE HOUSE PICKED</h3>`   
