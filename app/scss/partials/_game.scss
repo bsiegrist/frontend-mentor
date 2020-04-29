@@ -24,7 +24,7 @@ main{
     }
 
   &__start{
-    margin: 40% 0 40% 0;
+    margin: 25% 0 35% 0;
     padding: 0;
     background-image: url("../img/bg-pentagon.svg");
     background-repeat: no-repeat;
@@ -100,15 +100,15 @@ main{
   }
 }
 
-#paper{
+.paper-color{
   background-image: linear-gradient(to bottom, $paper1, $paper2);
 }
 
-#rock{
+.rock-color{
   background-image: linear-gradient(to bottom, $rock1, $rock2);
 }
 
-#lizard{
+.lizard-color{
   background-image: linear-gradient(to bottom, $lizard1, $lizard2);
 
   img{
@@ -116,11 +116,11 @@ main{
   }
 }
 
-#spock{
+.spock-color{
   background-image: linear-gradient(to bottom, $spock1, $spock2);
 }
 
-#scissors{
+.scissors-color{
   background-image: linear-gradient(to bottom, $scissors1, $scissors2);
 }
 
@@ -166,11 +166,13 @@ main{
   text-align: center;
   order: 3;
   @include media{
+    min-width: 10rem;
     order: 2;
-    margin-top: 7rem;
+    margin-top: 4.5rem;
   }
   
   h2{
+    letter-spacing: 0.2rem;
     font-size: 3.25rem;
     margin: 0;
   }
@@ -180,7 +182,7 @@ main{
     background-color: white;
     color: $dark-text;
     letter-spacing: 0.2rem;
-    padding: 0.7rem 0;
+    padding: 0.7rem 2rem;
     width: 100%;
     margin: 1rem 0 3.5rem 0;
     @include media{
@@ -188,8 +190,6 @@ main{
     }
   }
 }
-
-
 
 /* Rules */
 .rulesbutton{

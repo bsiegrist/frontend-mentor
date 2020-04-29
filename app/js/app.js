@@ -7,6 +7,9 @@ const start = document.querySelector(".game__start");
 const game = document.querySelector(".game");
 
 let points = 0;
+let choice_computer = 0;
+let choice_player = 0;
+let result = "ERROR";
 
 const options = ["rock", "paper", "scissors", "lizard", "spock"];
 
@@ -27,7 +30,7 @@ score.innerText = points;
 //show user choice
 function choice(button_id){
     game.innerHTML =    `<div class="choice choice__player">
-                            <div class="game__button" id="${button_id}">
+                            <div class="game__button ${button_id}-color" id="player-${button_id}">
                                 <div class="game__buttonwhite">
                                     <img src="img/icon-${button_id}.svg" alt="${button_id}-button">
                                 </div>
@@ -43,33 +46,36 @@ function choice(button_id){
                                                 
                         <div class="result">
                         </div>`
+    choice_player = options.indexOf(button_id);
+    console.log(choice_player)
     setTimeout(() => {
-        finalchoice();
+        //show final choices
+        const randomElement = options[Math.floor(Math.random() * options.length)];
+        console.log(randomElement);
+        choice_computer = options.indexOf(randomElement);
+        console.log(choice_computer);
+        document.querySelector(".choice__computer").innerHTML =`<div class="game__button ${randomElement}-color" id="computer-${randomElement}">
+                                        <div class="game__buttonwhite">
+                                            <img src="img/icon-${randomElement}.svg" alt="${randomElement}-button">
+                                        </div>
+                                    </div>
+                                    <h3>THE HOUSE PICKED</h3>`
+        return choice_computer;
         },1000);
     setTimeout(() => {
-            show_result();
-            },1750);
+        winner()
+        show_result();
+        },1750);
 };
 
-//show final choices
-function finalchoice(){
-    const randomElement = options[Math.floor(Math.random() * options.length)];
-    console.log(randomElement);
-    const choice__computer = document.querySelector(".choice__computer");
-    choice__computer.innerHTML =`<div class="game__button" id="${randomElement}">
-                                    <div class="game__buttonwhite">
-                                        <img src="img/icon-${randomElement}.svg" alt="${randomElement}-button">
-                                    </div>
-                                 </div>
-                                 <h3>THE HOUSE PICKED</h3>`   
-};
+
 
 //show result
 function show_result(){
-    const result = document.querySelector('.result')
-    result.innerHTML = `    <h2>YOU WIN</h2>
+    const result_message = document.querySelector('.result')
+    result_message.innerHTML = `    <h2>${result}</h2>
                             <button class="reload-button">PLAY AGAIN</button>`
-    result.style.display = "inline-block";
+    result_message.style.display = "inline-block";
     //eventlistener replay button
     document.querySelector(".reload-button").addEventListener('click', ()=>{
         location.reload();
@@ -98,3 +104,22 @@ start.addEventListener('click', Tools.delegate('.game__buttonwhite img', (event)
     choice(button_id);
 }))
 
+
+//who wins
+function winner(){
+    if (choice_player === choice_computer){
+        result = "EVEN";
+    } else if (choice_player == 0 && (choice_computer == 3 || choice_computer == 2)){
+        result = "YOU WIN";
+    } else if (choice_player == 1 && (choice_computer == 0 || choice_computer == 4)){
+        result = "YOU WIN";
+    } else if (choice_player == 2 && (choice_computer == 1 || choice_computer == 3)){
+        result = "YOU WIN";
+    } else if (choice_player == 3 && (choice_computer == 4 || choice_computer == 1)){
+        result = "YOU WIN";
+    } else if (choice_player == 4 && (choice_computer == 2 || choice_computer == 0)){
+        result = "YOU WIN";
+    } else {
+        result = "YOU LOSE";
+    }
+}
