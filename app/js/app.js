@@ -68,9 +68,12 @@ function finalchoice(){
 function show_result(){
     const result = document.querySelector('.result')
     result.innerHTML = `    <h2>YOU WIN</h2>
-                            <button>PLAY AGAIN</button>`
+                            <button class="reload-button">PLAY AGAIN</button>`
     result.style.display = "inline-block";
-    
+    //eventlistener replay button
+    document.querySelector(".reload-button").addEventListener('click', ()=>{
+        location.reload();
+    })
 }
 
 
