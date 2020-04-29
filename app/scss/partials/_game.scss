@@ -1,5 +1,5 @@
 main{
-    height: 80%;
+    height: 67%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -11,13 +11,16 @@ main{
 }
 
 .game{
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    flex-wrap: wrap;
+    padding: 4rem 0 1rem 0;
     @include media{
-      width: 52%;
+      width: 70%;
+      padding: 0 0 4rem 0;
     }
 
   &__start{
@@ -124,12 +127,14 @@ main{
 
 /*choice*/
 .choice{
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 2rem;
   @include media{
     flex-direction: column-reverse;
+    width: 30%;
+    margin: 0 2rem;
   }
 
   &__computer--calculating{
@@ -144,8 +149,45 @@ main{
   }
 }
 
+/*result*/
+.choice__player{
+  order: 1;
+}
 
+.choice__computer{
+  order: 2;
+  @include media{
+    order: 3;
+  }
+}
 
+.result{
+  display: none;
+  text-align: center;
+  order: 3;
+  @include media{
+    order: 2;
+    margin-top: 7rem;
+  }
+  
+  h2{
+    font-size: 3.25rem;
+    margin: 0;
+  }
+
+  button{
+    border-radius: 7px;
+    background-color: white;
+    color: $dark-text;
+    letter-spacing: 0.2rem;
+    padding: 0.7rem 0;
+    width: 100%;
+    margin: 1rem 0 3.5rem 0;
+    @include media{
+      margin: 1rem 0;
+    }
+  }
+}
 
 
 

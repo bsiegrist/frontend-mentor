@@ -39,11 +39,16 @@ function choice(button_id){
                             <div class="choice__computer--calculating">
                             </div>
                             <h3>THE HOUSE PICKED</h3>
+                        </div>
+                                                
+                        <div class="result">
                         </div>`
-    game.style.justifyContent = "space-between";
     setTimeout(() => {
         finalchoice();
         },1000);
+    setTimeout(() => {
+            show_result();
+            },1750);
 };
 
 //show final choices
@@ -58,6 +63,15 @@ function finalchoice(){
                                  </div>
                                  <h3>THE HOUSE PICKED</h3>`   
 };
+
+//show result
+function show_result(){
+    const result = document.querySelector('.result')
+    result.innerHTML = `    <h2>YOU WIN</h2>
+                            <button>PLAY AGAIN</button>`
+    result.style.display = "inline-block";
+    
+}
 
 
 //eventlistener gamebutton color
