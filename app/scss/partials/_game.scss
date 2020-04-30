@@ -191,8 +191,8 @@ main{
   }
 }
 
-/* Rules */
-.rulesbutton{
+/*buttonstyle*/
+.buttonstyle{
     border: 2px solid $header-outline;
     border-radius: 7px;
     background-color: hsl(237, 49%, 15%);
@@ -202,4 +202,9 @@ main{
     @include media{
       align-self: flex-end;
     }
+}
+
+/* RESET */
+.resetbutton{
+  margin-bottom: 1rem;
 }

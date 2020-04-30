@@ -32,6 +32,15 @@ rules.addEventListener('click', () => {
 //show points
 score.innerText = points;
 
+//show reset button
+if (points != 0){
+    document.querySelector(".resetbutton").style.display = "block";
+    //eventlistener reset button
+    document.querySelector(".resetbutton").addEventListener('click', ()=>{
+        localStorage.clear('points');
+        location.reload();
+    })
+}
 
 //show user choice
 function choice(button_id){
@@ -71,7 +80,7 @@ function choice(button_id){
     setTimeout(() => {
         winner();
         show_result();
-        },1750);
+        },2000);
 };
 
 
