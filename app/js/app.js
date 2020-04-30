@@ -6,7 +6,13 @@ const score = document.querySelector(".score__points");
 const start = document.querySelector(".game__start");
 const game = document.querySelector(".game");
 
+
 let points = 0;
+
+if (localStorage.getItem('points')){
+    points = Number(localStorage.getItem('points'));
+    } else {points = 0}
+
 let choice_computer = 0;
 let choice_player = 0;
 let result = "ERROR";
@@ -63,7 +69,7 @@ function choice(button_id){
         return choice_computer;
         },1000);
     setTimeout(() => {
-        winner()
+        winner();
         show_result();
         },1750);
 };
@@ -111,15 +117,33 @@ function winner(){
         result = "EVEN";
     } else if (choice_player == 0 && (choice_computer == 3 || choice_computer == 2)){
         result = "YOU WIN";
+        points += 1;
+        localStorage.setItem('points', JSON.stringify(points));
+        score.innerText = points;
     } else if (choice_player == 1 && (choice_computer == 0 || choice_computer == 4)){
         result = "YOU WIN";
+        points += 1;
+        localStorage.setItem('points', JSON.stringify(points));
+        score.innerText = points;
     } else if (choice_player == 2 && (choice_computer == 1 || choice_computer == 3)){
         result = "YOU WIN";
+        points += 1;
+        localStorage.setItem('points', JSON.stringify(points));
+        score.innerText = points;
     } else if (choice_player == 3 && (choice_computer == 4 || choice_computer == 1)){
         result = "YOU WIN";
+        points += 1;
+        localStorage.setItem('points', JSON.stringify(points));
+        score.innerText = points;
     } else if (choice_player == 4 && (choice_computer == 2 || choice_computer == 0)){
         result = "YOU WIN";
+        points += 1;
+        localStorage.setItem('points', JSON.stringify(points));
+        score.innerText = points;
     } else {
         result = "YOU LOSE";
+        points -= 1;
+        localStorage.setItem('points', JSON.stringify(points));
+        score.innerText = points;
     }
 }
